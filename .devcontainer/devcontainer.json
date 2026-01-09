@@ -1,0 +1,36 @@
+{
+  "name": "ZMK Firmware Development",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "trond-snekvik.devicetree",
+        "twxs.cmake",
+        "ms-python.python"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "cmake.configureOnOpen": false
+      }
+    }
+  },
+  "workspaceFolder": "/workspaces/zmk-config",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspaces/zmk-config,type=bind",
+    "source=${localWorkspaceFolder}/../zmk-workspace,target=/workspaces/zmk,type=bind",
+    "source=${localEnv:HOME}/.ssh,target=/home/ubuntu/.ssh,type=bind,readonly"
+  ],
+  "postCreateCommand": "bash /workspaces/zmk-config/.devcontainer/post-create.sh",
+  "containerUser": "ubuntu",
+  "remoteUser": "ubuntu",
+  "containerEnv": {
+    "ZEPHYR_TOOLCHAIN_VARIANT": "zephyr",
+    "ZMK_CONFIG": "/workspaces/zmk-config/config"
+  }
+}
+

@@ -1,0 +1,26 @@
+# ZMK Build Artifacts
+.west/
+build/
+zmk/
+zephyr/
+modules/
+
+# ZMK modules (managed by west)
+zmk-board-eyelash/
+zmk-dongle-display/
+zmk-nice-oled/
+zmk-pmw3610-driver/
+zmk-tog-io/
+kb_zmk_ps2_mouse_trackpoint_driver/
+
+# ZMK Studio
+.zmk/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+*.swp
+*.swo
+
